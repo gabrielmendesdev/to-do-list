@@ -8,6 +8,7 @@ enviar.addEventListener("click", function event() {
   } else {
     //Criação li
     const newFazeres = document.createElement("li");
+    newFazeres.classList.add('itens')
     const textNode = document.createTextNode(tarefa.value);
     newFazeres.appendChild(textNode);
     lista.appendChild(newFazeres);
@@ -15,13 +16,15 @@ enviar.addEventListener("click", function event() {
     //Criação checkBox
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
+    checkBox.classList.add('check')
     newFazeres.appendChild(checkBox);
     tarefa.value = "";
 
     //Criação button delete
     const deletar = document.createElement("input");
     deletar.type = "button";
-    deletar.value = "x";
+    deletar.value = "Remover";
+    deletar.classList.add('delete')
     newFazeres.appendChild(deletar);
     deletar.addEventListener("click", () => lista.removeChild(newFazeres));
   }
