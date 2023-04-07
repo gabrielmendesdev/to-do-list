@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
+
+
 *{
     margin: 0;
     padding: 0;
@@ -53,14 +55,16 @@ body {
     border-top: none;
     border-left: none;
     border-right: none;
+    padding-left: 5px;
 }
 
 #enviar{
-    height: 35px;
+    height: 30px;
     width: 80px;
     background-color: rgb(78, 206, 78);
     color: white;
     border: none;
+    border-radius: 4px;
 }
 
 #lista {
@@ -79,6 +83,10 @@ body {
     width: 80%;
     border-bottom: 1px solid black;
     margin: 10px 0px 0px 0px;
+    line-height: 10px;
+    display: flex;
+    align-items: center;
+    padding: 7px;
 }
 
 .check {
@@ -88,11 +96,19 @@ body {
 .delete {
     background-color: rgb(238, 94, 94);
     color: white;
-    height: 35px;
     padding: 5px;
     border-style: none;
-    margin-bottom: 10px;
-    display: flex;
     margin-left: auto;
-    align-items: center;
+
+}
+
+#rodape {
+    text-align: center;
+    margin-top: 5px;
+}
+
+@media (max-width: 700px) {
+    #myDiv {
+        width: 90vw;
+    }
 }
