@@ -9,16 +9,26 @@ function funcaoPrincipal() {
     //Criação li
     const newFazeres = document.createElement("li");
     newFazeres.classList.add("itens");
-    const textNode = document.createTextNode(tarefa.value);
-    newFazeres.appendChild(textNode);
+    const span = document.createElement("span");
+    span.textContent = tarefa.value
+    newFazeres.appendChild(span);
     lista.appendChild(newFazeres);
-
+    
     //Criação checkBox
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     checkBox.classList.add("check");
     newFazeres.appendChild(checkBox);
     tarefa.value = "";
+    checkBox.addEventListener("click", () => {
+      if(checkBox.checked) {
+        span.style.color = "lightgray";
+        span.style.textDecoration = "line-through"        
+      } else {
+        span.style.color = "black";
+        span.style.textDecoration = "none"
+      }
+    })
 
     //Criação button delete
     const deletar = document.createElement("input");
