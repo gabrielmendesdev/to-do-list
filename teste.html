@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minha Lista To-Do</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      h1 {
+        text-align: center;
+      }
+      
+      form {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      
+      input[type="text"] {
+        width: 70%;
+        padding: 10px;
+        border: none;
+        border-bottom: 2px solid gray;
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      
+      input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        border-bottom: 1px solid #ccc;
+      }
+      
+      .delete {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      
+      .done {
+        text-decoration: line-through;
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Minha Lista To-Do</h1>
+      <form id="form">
+        <input type="text" id="item" placeholder="Adicione uma tarefa">
+        <input type="submit" value="Adicionar">
+      </form>
+      <ul id="lista">
+      </ul>
+    </div>
+    
+    <script>
+      const form = document.getElementById("form");
+      const input = document.getElementById("item");
+      const lista = document.getElementById("lista");
+      
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const item = input.value;
+        if (item !== "") {
+          const li = document.createElement("li");
+          const span = document.createElement("span");
+          span.innerText = item;
+          const deleteButton = document.createElement("button");
+          deleteButton.innerText = "Deletar";
+          deleteButton.classList.add("delete");
+          deleteButton.addEventListener("click", function() {
+            li.remove();
+          });
+          const doneButton = document.createElement("button");
+          doneButton.innerText = "Concluído";
+          doneButton.addEventListener("click", function() {
+            span.classList.toggle("done");
+          });
+          li.appendChild(span);
+          li.appendChild(deleteButton);
+          li.appendChild(doneButton);
+          lista.appendChild(li);
+          input.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
+
